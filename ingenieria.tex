@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{stackrel}
+\usepackage{color}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \newcounter{neq}
 \providecommand{\abs}[1]{\lvert#1\rvert}
@@ -26,6 +27,8 @@
 \title{Resumen de la materia Ingeniería del Software I}
 \date{2017}
 
+\newcommand{\DEF}[1]{ \medskip \textbf{\underline{#1:}}}
+
 \begin{document}
 	\clearpage\maketitle
  	\thispagestyle{empty}
@@ -40,10 +43,13 @@
 	\begin{center}
 		Por favor, mejorá este documento en github
 		\includegraphics[width=1cm]{graphics/github.png} \\
-		https://github.com/ResumenesFaMAF/resumenLengForm
+		https://github.com/ResumenesFaMAF/resumenIngenieria1
 	\end{center}
 
 	\pagebreak
+
+  \input{1_introduction}
+  \input{2_requirements}
 
 
 \end{document}
