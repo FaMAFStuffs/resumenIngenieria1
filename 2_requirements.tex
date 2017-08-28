@@ -1,1 +1,164 @@
 \section{Requerimientos de Software}
+  
+  La \textit{SRS} \textbf{especifica} lo que el sistema propuesto debe hacer.
+  \PN Establece bases de un acuerdo entre el \textit{cliente / usuario} y el desarrollador.
+
+  % wrapfigure is for wraping the text and get a good format. Can be omited
+  \begin{wrapfigure}[5]{r}{0pt}
+    \includegraphics[scale=0.3]{graphics/figure_2.png}
+  \end{wrapfigure}
+
+  \PN\DEF{Pasos para crear una \textit{SRS}}
+  \begin{enumerate}
+    \item \textbf{Análisis del problema o requerimientos.}
+    \item \textbf{Especificación de los requerimientos.}
+    \item \textbf{Validación.}
+  \end{enumerate}
+
+  \subsection{Análisis del problema o requerimientos.}
+
+    \DEF{Objetivo} Lograr una buena comprensión de las necesidades, requerimientos y restricciones del software. Trata
+    con el dominio del problema. Se utilizan técnicas de diagramas de flujo de datos (\textit{DFD}), diagramas de
+    objetos, etc.
+    \PN \textbf{Principio básico:} \textit{Divide y conquistarás} para comprender cada subproblema y la
+    relación entre ellos con respecto a:
+    \begin{enumerate}[-]
+      \item \textbf{Funciones} (Análisis estructural)
+      \item \textbf{Objetos} (Análisis objetos)
+      \item \textbf{Eventos del sistema} (particionado de eventos)
+    \end{enumerate}
+
+    \subsubsection{Modelado de flujo de datos}
+      Un \textit{DFD} es una representación del flujo de datos a través del sistema.
+      \begin{itemize}
+        \item Ve al sistema como una trandormación de \textit{I / O}
+        \item La transformación se realiza a través de ``\textit{Transformadores}"
+        \item Captura la manera en que ocurre la transformación de la entrada en la salida a medida que los datos se
+              mueven a través de los transformadores.
+        \item No se limita al software.
+      \end{itemize}
+
+    \subsubsection{Modelado orientado a objetos}
+      Un sistema es visto como un conjunto de objetos interactuando entre
+      sí (o con el usuario) a través de servicios que cada uno provee.
+      \PN\DEF{Objetivo}
+      \begin{itemize}
+        \item Identificar los objetos en el dominio del problema
+        \item Definir las clases identificando cual es la información del estado que esta encapsula
+        \item Identificar las relaciones entre los objetos de las distintas clases, ya sea en la jerarquía o a través de
+              llamadas a métodos.
+      \end{itemize}
+
+    \PN\subsubsection{Prototipado}
+      Clientes, usuarios y desarrolladores lo utilizan para comprender mejor el problema y las necesidades.
+      Dos enfoques:
+      \begin{enumerate}
+        \item \textbf{Descartable:} (\textit{más adecuado}) El prototipo se construye con la idea de desecharlo luego de
+              culminada la fase de requerimientos.
+        \item \textbf{Evolucionario:} Se contruye con la idea de que evolucionará al sistema final.
+      \end{enumerate}
+
+  \subsection{Especificación de requerimientos:}
+    \subsubsection{Características de una SRS}
+    \begin{itemize}
+      \item \textbf{Correcta:}  Cada requerimiento representa precisamente alguna característica deseada en
+                                el sistema final.
+      \item \textbf{Completa:} Todas las características deseadas están descritas.
+      \item \textbf{No ambigüa} Cada requerimiento tiene exactamente un significado.
+      \item \textbf{Consistente} Ningún requerimiento contradice a otro.
+      \item \textbf{Verificable} Cada requerimiento se debe poder verificar.
+      \item \textbf{Rastreable} Se debe poder determinar el origen de cada requerimiento y cómo éste se relaciona a los
+                                elementos del software. \\
+                                Requerimiento $\Rightarrow$ parte de código, 
+                                Parte de código $\Rightarrow$ Requerimiento.
+      \item \textbf{Modificable} Incorporar cambios fácilmente preservando completitud y consistencia. No redundancia.
+      \item \textbf{Ordenada en aspectos de importancia y estabilidad} Orden de prioridades para reducir riesgos debido
+                                                                       a cambios de requerimientos.
+    \end{itemize}
+
+    \subsubsection{Una SRS debe especificar requerimientos sobre}
+    \begin{enumerate}
+      \item \textbf{Funcionalidad:} Especifica toda la funcionalidad que el sistema debe proveer, las salidas que debe
+        producir para cada entrada y las relaciones entre ellas, todas las operaciones que el sistema debe realizar. Las
+        entradas válidas y el comportamiento del sistema para entradas inválidas, errores u otras situaciones anormales.
+      \item \textbf{Requerimientos de desempeño:} Todas las restricciones en el desempeño del sistema de software.
+            \begin{enumerate}[-]
+              \item \textbf{Requerimientos dinámicos:} Especifican restricciones sobre la ejecución.
+              \item \textbf{Requerimientos estáticos:} No imponen restricción en la ejecución.
+            \end{enumerate}
+            Todos los requisitos se especifican en términos medibles, verificables.
+      \item \textbf{Restricciones de diseño:} Existen factores en el entorno del cliente que pueden restringir las
+        elecciones de diseño. Ej: Ajustarse a estándares.
+      \item \textbf{Requerimientos de interfaces externas:} Todas las interacciones del software con gente, harware y
+        otros softwares deben especificarse claramente. La interfaz con el usuario debe recibir la atención adecuada.
+    \end{enumerate}
+
+    \subsubsection{Casos de uso}
+
+    \PN\DEF{Conceptos básicos}
+    \begin{enumerate}[-]
+      \item \textbf{Actor:} Persona o sistema que interactua con el sistema propuesta para alcanzar un objetivo.
+      \item \textbf{Actor primario:} Actor principal que inicia el caso de uso.
+      \item \textbf{Escenario:} Conjunto de acciones realizadas con el fin de alcanzar un objetivo bajo determinadas
+        condiciones.
+      \item \textbf{Escenario exitoso principal:} Cuando todo funciona normalmente y se alcanza el objetivo.
+      \item \textbf{Escenario alternativos (de extensión/ de excepción):} Cuando algo sale mal y el objetivo no puede
+        ser alcanzado.
+    \end{enumerate}
+
+  \subsection{Validación}
+
+    \subsubsection{Errores más comunes}
+      \begin{itemize}
+        \item Omisión
+        \item Inconsistencia
+        \item Hechos incorrectos
+        \item Ambigüedad
+      \end{itemize}
+      La \textit{SRS} la revisan un grupo de personas, conformado por: Autor, cliente, representantes de usuarios y de 
+      desarrolladores.
+
+  \subsection{Métricas}
+    Para poder estimar costos y tiempos y planear el proyecto se necesita ``medir" el esfuerzo que demandará.
+
+    \subsubsection{Punto función}
+      Es una métrica como las \textit{LOC}, se determina solo cno la \textit{SRS}, define el tamaño en términos de
+      funcionalidad
+
+      \DEF{Tipos de Funciones}
+      \begin{itemize}
+        \item Entradas externas
+        \item Salidas externas
+        \item Archivos de interfaz externa
+        \item Archivos lógicos internos
+        \item Transacciones externas
+      \end{itemize}
+
+      \DEF{Punto función no ajustado (UFP)} \quad $\sum\limits_{i=1}^{5}\sum\limits_{j=1}^{3}W_{ij}C_{ij}$
+
+      \DEF{Características}
+        \par 1. Comunicación de datos
+        \par 2. Procesamiento distribuido
+        \par 3. Objetivos de desempeño
+        \par 4. Carga en la configuración de operación
+        \par 5. Tasa de transacción
+        \par 6. Ingreso de datos online
+        \par 7. Eficiencia del usuario final
+        \par 8. Actualización online
+        \par 9. Complejidad del procesamiento lógico
+        \par 10. Reusabilidad
+        \par 11. Facilidad para la instalación
+        \par 12. Facilidad para la operación
+        \par 13. Múltiples sitios
+        \par 14. Intención de facilitar cambios
+
+      \DEF{Factor de ajuste de complejidad (CAF)} \quad $0.65 + 0.01 \sum\limits_{i=1}^{14} Pi$
+
+      \DEF{Puntos función} CAF * UFP
+
+    \subsubsection{Métrica de calidad}
+      \begin{enumerate}[-]
+        \item Directa: Evalúan la calidad del documento estimando el valor de los atributos de calidad de la SRS.
+        \item Indirecta: Evalúan la efectividad de las métricas del control de calidad usadas en el proceso en la fase
+              de requerimientos.
+      \end{enumerate}
