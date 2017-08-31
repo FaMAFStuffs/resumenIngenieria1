@@ -1,1 +1,151 @@
 \section{Arquitectura del software}
+  \PN\DEF{Definición} Es la estructura del sistema que comprende los elementos del software, las propiedades
+  externamente visibles de tales elementos y la relación entre ellos.
+
+  \begin{itemize}
+    \item Diseño de mas alto nivel.
+    \item Elecciones de tecnologias, productos a usar, servidores.
+    \item Empezar a evaluar confiabilidad y desempeño.
+    \item Divide al sistema en partes lógicas independientes.
+  \end{itemize}
+
+  \subsection{El rol de la arquitectura}
+
+    \subsubsection{Comprensión y comunicación}
+      \begin{enumerate}[-]
+        \item Al mostrar la estructura de alto nivel del sistema, la descripción arquitectónica facilita la
+              comunicación.
+        \item Define un marco de comprensión común entre los distintos interesados
+              (usuarios, cliente, arquitecto, diseñador, etc.).
+      \end{enumerate}
+
+    \subsubsection{Reuso}
+      \begin{enumerate}[-]
+        \item Principal técnica para incrementar la productividad.
+        \item Una forma de reuso es componer el sistema con partes existenes, reusadas, otras nuevas.
+        \item La arquitectura es muy importante: se elige una arquitectura tal que las componentes existentes encajen 
+              adecuadamente con otras componentes a desarrollar.
+        \item Las decisiones sobre el uso de componentes existentes se toman en el momento de diseñar la arquitectura.
+      \end{enumerate}
+
+    \subsubsection{Construcción y evolución}
+      \begin{enumerate}[-]
+        \item La división provista por la arquitectura servirá para guiar el desarrollo del sistema.
+        \item Decide las partes a cambiar para incorporarse nuevas características en la evolución del software.
+      \end{enumerate}
+
+    \subsubsection{Análisis}
+      \begin{enumerate}[-]
+        \item Permite considerar distintas alternativas de diseño hasta encontrar los niveles de satisfacción deseados.
+      \end{enumerate}
+
+  \pagebreak
+
+  \subsection{Vistas de la arquitectura}
+
+    \subsubsection{Módulos}
+      \begin{enumerate}[-]
+        \item Un sistema es una colección de unidades de código
+        \item La relación entre ellos esta basada en el código.
+      \end{enumerate}
+
+    \subsubsection{Componentes y conectores}
+      \begin{enumerate}[-]
+        \item Los elementos son entidades de ejecucción  (componentes).
+        \item Los conectores proveen el medio de interacción entre los componentes.
+      \end{enumerate}
+
+    \subsubsection{Asignación de recursos}
+      \begin{enumerate}[-]
+        \item Como las unidades de \textit{SW} se asignan a \textit{SW}.
+        \item Exponen propiedades estructurales. Ej: que archivo reside donde.
+      \end{enumerate}
+
+  \subsection{La vista componentes y conectores}
+    
+    \PN\DEF{Componentes} Elementos computacionales o de almacenamiento de datos.
+
+    \PN\DEF{Conectores} Mecanismos de interacción entre las componentes.
+
+    \PN La vista de C\&C describe una estructura en ejecucción del sistema: que componentes existen y como interactúan
+    entre ellos en tiempo de ejecucción.
+
+  \subsection{Estilos arquitectónicos para la vista C\&C}
+
+    \begin{itemize}
+      \setlength\itemsep{0mm}
+      \item Un estilo arquitectónico define una gamilia de arquitecturas que satisface las restricciones de ese estilo.
+      \item Los estilos proveen ideas para crear arquitecturas de sistemas.
+      \item Distintos estilos pueden conbinarse para definir una nueva arquitectura.
+    \end{itemize}
+
+  \subsection{Tubos y filtros}
+
+    \begin{itemize}
+      \setlength\itemsep{0mm}
+      \item Adecuado para sistemas que realizan transformación de datos
+      \item Un solo tipo de componente: \textbf{FILTRO}
+      \item Un solo tipo de conector: \textbf{TUBO}
+    \end{itemize}
+
+    \subsubsection{Filtro}
+    \begin{enumerate}[-]
+      \setlength\itemsep{0mm}
+      \item Realiza transformaciones y le pasa los datos a otro filtro.
+      \item Entidad independiente y asincrona.
+      \item No necesita saber la identidad de los filtros a los que envía y recibe datos.
+      \item Se encarga de hacer ``buffering".
+    \end{enumerate}
+
+    \subsubsection{Tubo}
+    \begin{enumerate}[-]
+      \setlength\itemsep{0mm}
+      \item Canal unidireccional que transporta un flujo de datos de un filtro a otro
+      \item Solo conecta dos componentes
+    \end{enumerate}
+
+    %TODO: Ejemplo
+
+  \subsection{Datos compartidos}
+
+    \subsubsection{Componentes}
+    \begin{enumerate}[-]
+      \setlength\itemsep{0mm}
+      \item Repositorio de datos: Provee almacenamiento permanente confiable.
+      \item Usuarios de datos: Acceden a los datos en el repositorio, realizan cálculos y ponen los resultados otra vez
+      en el repositorio. La comunicación entre los usuarios de los datos sólo se hace a través del repositorio.
+    \end{enumerate}
+
+    \subsubsection{Conector}
+    \begin{enumerate}[-]
+      \setlength\itemsep{0mm}
+      \item Lectura / escritura
+    \end{enumerate}
+
+    \subsubsection{Variantes}
+    \begin{enumerate}[-]
+      \item Estilo pizarra: Cuando se agregan/modifican datos en el repositorio se informa a todos los usuarios.
+      \item Estilo repositorio: El repositorio es pasivo.
+    \end{enumerate}
+
+  \subsection{Estilo cliente-servidor}
+
+    \subsubsection{Componentes}
+    \begin{enumerate}[-]
+      \item 2 tipos: Clientes y servidores
+      \item Los clientes sólo se comunican con el servidor, y no con otros clientes.
+      \item La comunicación es iniciada por el cliente, envia una solicitud al servidor y espera una respuesta.
+      \item Comunicación usualmente sincronica.
+      \item Usualmente cliente y servidor en distintas máquinas.
+    \end{enumerate}
+
+    \subsubsection{Conector}
+    \begin{enumerate}[-]
+      \item Solicitud / respuesta, es asimétrico
+    \end{enumerate}
+
+    %TODO: Ejemplo
+
+  \subsection{Estilo publicar-suscribir}
+  
+
