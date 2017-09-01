@@ -148,4 +148,75 @@
 
   \subsection{Estilo publicar-suscribir}
   
+    \subsubsection{Componentes}
+    \begin{enumerate}[-]
+      \item Dos tipos de componentes: las que publican eventos y las que se suscriben a eventos.
+            Cada vez que un evento es publicado se invoca a las componentes suscriptas a dicho evento.
+    \end{enumerate}
 
+  \subsection{Estilo peer-to-peer}
+
+    \begin{enumerate}[-]
+      \item Un único tipo de componente.
+      \item Cada componente le puede pedir servicios a otro modelo de computación orientado a objetos.
+    \end{enumerate}
+
+  \subsection{Estilo de procesos que se comunican}
+
+    \begin{enumerate}[-]
+      \item Procesos que se comunican entre sí a través de pasaje de mensajes.
+    \end{enumerate}
+
+  \subsection{Relacion/diferencia entre diseño y arquitectura}
+
+    \begin{enumerate}[-]
+      \item La arquitectura es un diseño: se encuentra en el dominio de la solución y no en el dominio del problema.
+      \item La arquitectura es un diseño de muy alto nivel que se enfoca en las componentes principales.
+      \item Lo que usualmente llamamos diseño se enfoca en los módulos que finalmente se transformarán en el código de
+            tales componentes.
+    \end{enumerate}
+
+  \subsection{Preservación de la intergridad de la arquitectura}
+
+    \begin{enumerate}[-]
+      \item La arquitectura impone restricciones que deben preservarse en la implementación, inclusive.
+      \item Para que la arquitectura tenga sentido, ésta debe acompañar el diseño y el desarrollo del sistema.
+    \end{enumerate}
+
+  \subsection{Método de análisis ATAM}
+    Analiza las propiedades y las conexiones entre ellas
+
+    \begin{enumerate}
+      \item Recolectar escenarios
+            \begin{itemize}
+              \item Elegir los escenarios de intereces para el analisis
+              \item incluir escenarios exxcepcionales solo si son importantes
+            \end{itemize}
+      \item Recolectar requerimientos y/o restricciones
+            \begin{itemize}
+              \item Definir lo que se espera del sistema en tales escenarios.
+              \item Deben especificar los niveles deseados para los atributos de interés (preferiblemente
+                    cuantificados).
+            \end{itemize}
+      \item Describir las vistas arquitectónicas
+            \begin{itemize}
+              \item Las vistas del sistema que serán evaluadas son recolectadas.
+              \item Distintas vistas pueden ser necesarias para distintos análisis.
+            \end{itemize}
+      \item Análisis especificos a cada atributo
+            \begin{itemize}
+              \item Se analizan las vistas bajo distintos escenarios separadamente para cada atributo de interés
+                    distinto.
+              \item Determina los niveles que la arquitectura puede proveer en cada atributo.
+              \item Se comparan con los requeridos.
+              \item Esto forma la base para la elección entre una arquitectura u otra o la modificación de la
+                    arquitectura propuesta.
+            \end{itemize}
+      \item Identificar puntos sensitivos y de compromisos
+            \begin{itemize}
+              \item Análisis de sensibilidad: cuál es el impacto que tiene un elemento sobre un atributo de calidad.
+                    Los elementos de mayor impacto son los puntos de sensibilidad.
+              \item Análisis de compromiso: Los puntos de compromiso son los elementos que son puntos de sensibilidad
+                    para varios atributos. 
+            \end{itemize}
+    \end{enumerate}
